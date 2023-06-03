@@ -34,7 +34,12 @@ In which:
 dS(t) = 1 / N(t) * v(t) * dt
 Is the Share price.
 
+The given equations describe how to calculate these values:
 
+Total Rewards (dR(t)) is equal to the global speed (v(t)) times the time interval (dt).
+The rewards for a specific account (dr(t)) is equal to their staked amount (n(t)) divided by the total staked amount (N(t)) times the total rewards.
+This can be simplified to: The rewards for a specific account is equal to their staked amount times the change in the share price.
+The change in the share price (dS(t)) is calculated as the global speed times the time interval, divided by the total staked amount.
 
 
 deploy
