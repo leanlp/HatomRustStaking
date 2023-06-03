@@ -64,6 +64,7 @@ unstake
     --proxy=https://devnet-gateway.multiversx.com --chain=D \
     --send --recall-nonce --pem=~/staking-contract/walletKey.pem \
     --gas-limit=10000000 \
+    --arguments=1000\
     --function="withdraw"
 
 
