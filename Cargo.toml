@@ -10,9 +10,17 @@ path = "src/staking.rs"
 
 [dev-dependencies]
 num-bigint = "0.4.2"
+mockall = "0.9.1"
+num-traits = "0.2"
+hex = "0.4"
 
 [dependencies.multiversx-sc]
 version = "0.41.1"
 
 [dev-dependencies.multiversx-sc-scenario]
 version = "0.41.1"
+
+[env]
+CARGO_INCREMENTAL=0
+
+CARGO_TARGET_DIR= "tmp/cargo_build/"

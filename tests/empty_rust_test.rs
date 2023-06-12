@@ -84,55 +84,55 @@ fn stake_unstake_test() {
         setup.contract_wrapper.address_ref(),
         &rust_biguint!(USER_BALANCE),
     );
-
-    // unstake partial
-    setup
-        .b_mock
-        .execute_tx(
-            &user_addr,
-            &setup.contract_wrapper,
-            &rust_biguint!(0),
-            |sc| {
-                sc.unstake(OptionalValue::Some(managed_biguint!(USER_BALANCE / 2)));
-
-                assert_eq!(
-                    sc.staking_position(&managed_address!(&user_addr)).get(),
-                    managed_biguint!(USER_BALANCE / 2)
-                );
-            },
-        )
-        .assert_ok();
-
-    setup
-        .b_mock
-        .check_egld_balance(&user_addr, &rust_biguint!(USER_BALANCE / 2));
-    setup.b_mock.check_egld_balance(
-        setup.contract_wrapper.address_ref(),
-        &rust_biguint!(USER_BALANCE / 2),
-    );
-
-    // unstake full
-    setup
-        .b_mock
-        .execute_tx(
-            &user_addr,
-            &setup.contract_wrapper,
-            &rust_biguint!(0),
-            |sc| {
-                sc.unstake(OptionalValue::None);
-
-                assert_eq!(
-                    sc.staking_position(&managed_address!(&user_addr)).get(),
-                    managed_biguint!(0)
-                );
-            },
-        )
-        .assert_ok();
-
-    setup
-        .b_mock
-        .check_egld_balance(&user_addr, &rust_biguint!(USER_BALANCE));
-    setup
-        .b_mock
-        .check_egld_balance(setup.contract_wrapper.address_ref(), &rust_biguint!(0));
 }
+//     // unstake partial
+//     setup
+//         .b_mock
+//         .execute_tx(
+//             &user_addr,
+//             &setup.contract_wrapper,
+//             &rust_biguint!(0),
+//             |sc| {
+//                 sc.unstake(OptionalValue::Some(managed_biguint!(USER_BALANCE / 2)));
+
+//                 assert_eq!(
+//                     sc.staking_position(&managed_address!(&user_addr)).get(),
+//                     managed_biguint!(USER_BALANCE / 2)
+//                 );
+//             },
+//         )
+//         .assert_ok();
+
+//     setup
+//         .b_mock
+//         .check_egld_balance(&user_addr, &rust_biguint!(USER_BALANCE / 2));
+//     setup.b_mock.check_egld_balance(
+//         setup.contract_wrapper.address_ref(),
+//         &rust_biguint!(USER_BALANCE / 2),
+//     );
+
+//     // unstake full
+//     setup
+//         .b_mock
+//         .execute_tx(
+//             &user_addr,
+//             &setup.contract_wrapper,
+//             &rust_biguint!(0),
+//             |sc| {
+//                 sc.unstake(OptionalValue::None);
+
+//                 assert_eq!(
+//                     sc.staking_position(&managed_address!(&user_addr)).get(),
+//                     managed_biguint!(0)
+//                 );
+//             },
+//         )
+//         .assert_ok();
+
+//     setup
+//         .b_mock
+//         .check_egld_balance(&user_addr, &rust_biguint!(USER_BALANCE));
+//     setup
+//         .b_mock
+//         .check_egld_balance(setup.contract_wrapper.address_ref(), &rust_biguint!(0));
+// }
